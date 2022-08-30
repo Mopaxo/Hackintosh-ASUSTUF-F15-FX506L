@@ -45,9 +45,22 @@ This repo was created after I was able to boot with the desktop files for Comet 
  
 * To learn how Open-Core works, **i would recommend reading the** [documentation_guide](https://dortania.github.io/OpenCore-Install-Guide/) as a first step. 
 
-* If you need the Big Sur or Monterey Image to make an USB Stick, i would recommend visit the [orarlila_vanilla_images_site](https://www.olarila.com/topic/6278-hackintosh-and-macintosh-olarila-vanilla-images-macos-installer/) as a second step. These images come with extra programs to copy on your hackintosh after installation. If you want to make this USB stick from Windows Computer, i would recommend get this program [balena_etcher](https://www.balena.io/etcher/)
+* If you need the Big Sur or Monterey Image to make an USB Stick, **i would recommend visit the** [orarlila_vanilla_images_site](https://www.olarila.com/topic/6278-hackintosh-and-macintosh-olarila-vanilla-images-macos-installer/) as a second step. These images come with extra programs to copy on your hackintosh after installation. If you want to make this USB stick from Windows Computer, **i would recommend get this program** [balena_etcher](https://www.balena.io/etcher/).
 
-* Then you will need the EFI folder corresponding to the archicteture of your processor, in this case i took the efi folder for the commet-lake processors from [orarlila_efi_folders_site](https://www.olarila.com/topic/5676-hackintosh-efi-folder-for-all-chipsets-clover-and-opencore-macos/). In this case, you will only take the EFI Folder from this repository, and put that folder in your USB Stick EFI Partition to get the main features like sound, wifi and blueetooth working. 
+* Then you will need the EFI folder corresponding to the archicteture of your processor, in this case i took the efi folder for the commet-lake processors from [orarlila_efi_folders_site](https://www.olarila.com/topic/5676-hackintosh-efi-folder-for-all-chipsets-clover-and-opencore-macos/). In this case, you will only take the EFI folder from this repository, and put that folder in your USB Stick EFI Partition to get the main features like sound, wifi and blueetooth working. 
+
+## Some Issues & Some Solutions:
+
+### Wifi & Bluetooth
+
+ * To get the wifi and bluetooth working, ** you can use the drivers (kexts) from ** [open_intel_wireless_repository](https://github.com/OpenIntelWireless/itlwm/releases). The version that worked for me was the itlwm_v2.1.0_stable.kext.zip (14.7mb). 
+
+ * To get the bluetooth working, ** you can use the drivers (kexts) from ** [open_intel_bluetooth_firmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases). The version that worked for me was the IntelBluetoothFirmware-v2.1.0.zip (14.7mb). I also used "BlueToolFixup" to make the turn on / off switch of bluetooth feature work from this link: https://www.mediafire.com/file/wbelm42pkw5z0h1/Solucion_Intel_BT_%2526_WiFi_Hackintosh.zip/file.
+ 
+  * You need to put these drivers on efi/oc/kexts folder and update the config.plist file with some easy-editor. **I used the ProperTree-Editor from ** [corpnewt-propertree-repository](https://github.com/corpnewt/ProperTree).
+
+ * Also you will need a UI program to get the wifi working with the kext. **i would recommend get this program** [heli_port](https://github.com/OpenIntelWireless/HeliPort/releases/tag/v1.4.1). Add heliport to your startup items under login and hide the orginal with dozer and it's hard to see the difference.
+ 
 
 
 
