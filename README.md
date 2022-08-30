@@ -53,15 +53,27 @@ This repo was created after I was able to boot with the desktop files for Comet 
 
 ### Wifi & Bluetooth
 
- * To get the wifi and bluetooth working, ** you can use the drivers (kexts) from ** [open_intel_wireless_repository](https://github.com/OpenIntelWireless/itlwm/releases). The version that worked for me was the itlwm_v2.1.0_stable.kext.zip (14.7mb). 
+ * To get the wifi and bluetooth working, **you can use the drivers (kexts) from** [open_intel_wireless_repository](https://github.com/OpenIntelWireless/itlwm/releases). The version that worked for me was the itlwm_v2.1.0_stable.kext.zip (14.7mb). 
 
- * To get the bluetooth working, ** you can use the drivers (kexts) from ** [open_intel_bluetooth_firmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases). The version that worked for me was the IntelBluetoothFirmware-v2.1.0.zip (14.7mb). I also used "BlueToolFixup" to make the turn on / off switch of bluetooth feature work from this link: https://www.mediafire.com/file/wbelm42pkw5z0h1/Solucion_Intel_BT_%2526_WiFi_Hackintosh.zip/file.
+ * To get the bluetooth working, **you can use the drivers (kexts) from** [open_intel_bluetooth_firmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases). The version that worked for me was the IntelBluetoothFirmware-v2.1.0.zip (14.7mb). I also used "BlueToolFixup" to make the turn on / off switch of bluetooth feature work from this link: https://www.mediafire.com/file/wbelm42pkw5z0h1/Solucion_Intel_BT_%2526_WiFi_Hackintosh.zip/file.
  
-  * You need to put these drivers on efi/oc/kexts folder and update the config.plist file with some easy-editor. **I used the ProperTree-Editor from ** [corpnewt-propertree-repository](https://github.com/corpnewt/ProperTree).
+  * You need to put these drivers on efi/oc/kexts folder and update the config.plist file with some easy-editor. **I used the ProperTree-Editor from** [corpnewt-propertree-repository](https://github.com/corpnewt/ProperTree).
 
  * Also you will need a UI program to get the wifi working with the kext. **i would recommend get this program** [heli_port](https://github.com/OpenIntelWireless/HeliPort/releases/tag/v1.4.1). Add heliport to your startup items under login and hide the orginal with dozer and it's hard to see the difference.
  
+### Audio
 
+ * To get the audio working, you will need one KEXT to enable the audio support: ```AppleALC.kext```.
+ 
+ * Make sure you inject audio layout-id = 17 in OpenCore - this is in the current config.plist. The option is the NVRAM dictonary, who has one child dictonary called "boot-args" with one atribute called "alcid". Alcid is equal to Layout, it just the same but with another name.
+
+### Elan Trackpad (TPAD)
+
+ * To get the trackpad working, **use the latest VoodooI2C** [voodool2c_repository](https://github.com/VoodooI2C/VoodooI2C/releases)
+
+ * The touchpad works mostly fine, but the buttons only work when the tochpad is touched. both buttons work as left button, so can be used for drag and drop.
+ 
+ * Occassionally there is some delay/tear, right click works by enabling double finger click.
 
 
 
