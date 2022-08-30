@@ -49,6 +49,14 @@ This repo was created after I was able to boot with the desktop files for Comet 
 
 * Then you will need the EFI folder corresponding to the archicteture of your processor, in this case i took the efi folder for the commet-lake processors from [orarlila_efi_folders_site](https://www.olarila.com/topic/5676-hackintosh-efi-folder-for-all-chipsets-clover-and-opencore-macos/). In this case, you will only take the EFI folder from this repository, and put that folder in your USB Stick EFI Partition to get the main features like sound, wifi and blueetooth working. 
 
+## Generate the SMBios for the laptop:
+
+For setting up the SMBIOS info, we'll use CorpNewt's GenSMBIOS: https://github.com/corpnewt/GenSMBIOS.
+Because of the Comet Lake (10th Gen), we'll choose the MacBookPro16,4 SMBIOS:
+
+Run GenSMBIOS, pick option 1 for downloading MacSerial and Option 3 for selecting out SMBIOS.
+Then, type in the console: MacBookPro16,4. Then you are ready!, you can close the terminal and reset the hackintosh to see the model on "about this mac".
+
 ## Some Issues & Some Solutions:
 
 ### Wifi & Bluetooth
@@ -69,11 +77,38 @@ This repo was created after I was able to boot with the desktop files for Comet 
 
 ### Elan Trackpad (TPAD)
 
- * To get the trackpad working, **use the latest VoodooI2C** [voodool2c_repository](https://github.com/VoodooI2C/VoodooI2C/releases)
+ * To get the trackpad working, **use the latest VoodooI2C kext from:** [voodool2c_repository](https://github.com/VoodooI2C/VoodooI2C/releases)
 
  * The touchpad works mostly fine, but the buttons only work when the tochpad is touched. both buttons work as left button, so can be used for drag and drop.
  
  * Occassionally there is some delay/tear, right click works by enabling double finger click.
 
+### GPU's
+
+#### IGPU
+
+ * The Intel Graphics UHD 630 works fine with all of 4k videoplayback and surfing on the OS. 
+
+ * HDMI Port:
+   * Long story short, it won't work. Why? Because all display output is hard wired to the NVIDIA GPU. You can confirm this by going into NVIDIA controler panel in Windows and see PhysX, and you can see all display output is wired to the NVIDIA card, while the eDP in screen display is wired to the iGPU. Therefore, since NVIDIA card won't work, also Optimus won't work, the HDMI port or USB-C display output just won't work because the display output is not wired to the iGPU ( and dGPU is disabled) - note this works fine with a USB-c dock that has HDMI/display port on board.
+
+#### DGPU
+
+ * NVIDIA GTX1650 is not supported (for now only in High Sierra it seems) and is disabled.
+ 
+ * [Apple and Nvidia Are Over: Nvidia drops Cuda support for macOS](https://gizmodo.com/apple-and-nvidia-are-over-1840015246)
+ 
+ * Currently, there is nothing we can do. Let's hope Apple and NVIDIA work together again.
+
+## Credits
+ 
+ * [alexandred](https://github.com/alexandred) for providing Voodool2C
+ * [acidanthera](https://github.com/acidanthera) for providing almost all the kexts and drivers.
+ * [MaLd0n](https://www.olarila.com/profile/2-mald0n/) for providing almost all the macOS Images to make the USB stick and the EFI folders for your computer.
+
+
+## License
+
+ * This work is issued under the [996 License](https://github.com/996icu/996.ICU/blob/master/LICENSE) and [MIT license](https://opensource.org/licenses/MIT).
 
 
