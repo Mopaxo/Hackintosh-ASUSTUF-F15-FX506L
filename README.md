@@ -1,6 +1,5 @@
 # Hackintosh-Asus-tuf-15-opencore
 
-Feel free to contact me. :)! simonzunigahidalgo@gmail.com
 This repository was created for everyone looking how to make this laptop (Asus TUF Gaming F15 FX506L) run MacOS Monterey 12.5.1.
 
 This repo was created after I was able to boot with the desktop files for Comet Lake platform. Most of the work to get this to work, was done by VGerris and his repository: https://github.com/VGerris/asus-tuf-15-opencore.
@@ -112,6 +111,9 @@ Then, type in the console: MacBookPro16,4. Then you are ready!, you can close th
 
  * This work is issued under the [996 License](https://github.com/996icu/996.ICU/blob/master/LICENSE) and [MIT license](https://opensource.org/licenses/MIT).
  
+## Contact
+
+ * Feel free to contact me :)! Write an email to simonzunigahidalgo@gmail.com
  
 
 
